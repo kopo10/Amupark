@@ -19,7 +19,7 @@ public class InputClass {
 
 	public String ResidentNumber() {
 		String ResidentNumber;
-		System.out.printf("주민번호를 입력하세요\n");
+		System.out.printf("주민번호를 입력하세요(-제외 7자리)\n");
 		ResidentNumber = sc.next();
 		return ResidentNumber;
 
