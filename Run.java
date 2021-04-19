@@ -3,7 +3,7 @@ package amu_park;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
+   
 public class Run {  
 	public InputClass inputclass = null;
 	public ConstvaluseClass constval = null;
