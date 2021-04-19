@@ -1,5 +1,6 @@
 package amu_park;
 
+<<<<<<< HEAD
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
@@ -90,4 +91,8 @@ public class OutPutClass {
 	
 	
 	
+=======
+public class OutPutClass {
+
+>>>>>>> b8c9ae5df888c40be8a41cb70b4cae2eca579f7c
 }

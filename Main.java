@@ -1,13 +1,22 @@
+<<<<<<< HEAD
 // ArrayList<ArrayList<String>> doublearray = new ArrayList<ArrayList<String>>();
 package amu_park;
 
 import java.io.IOException;
 import java.util.ArrayList;
+=======
+package amu_park;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+>>>>>>> b8c9ae5df888c40be8a41cb70b4cae2eca579f7c
 
 public class Main {
 
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
+<<<<<<< HEAD
 		OutPutClass out = new OutPutClass();
 		Run run = new Run();
 		InputClass input = new InputClass();
@@ -84,6 +93,21 @@ public class Main {
 				}
 			}
 		}
+=======
+		Run run = new Run();
+		InputClass input = new InputClass();
+		int DayOrNight = 0;
+
+		
+		DayOrNight = input.DayOrNight();
+		if(DayOrNight == 1) {
+			run.DayOrNight(DayOrNight);
+			
+		}
+		
+	
+		
+>>>>>>> b8c9ae5df888c40be8a41cb70b4cae2eca579f7c
 	}
 
 }
