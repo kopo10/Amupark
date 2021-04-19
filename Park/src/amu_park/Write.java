@@ -19,7 +19,7 @@ public class Write {
 		write = sdf.format(cal.getTime()) + String.format(",%s,%s,%s,%s,%s\n", DayOrNight, HowOld, Count, Price, Discount);
 		output.write(write.getBytes());
 		output.close();			
-	
+	   
 	}	
 }
 

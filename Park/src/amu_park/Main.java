@@ -11,14 +11,11 @@ public class Main {
 		OutPutClass out = new OutPutClass();
 		Run run = new Run();
 		InputClass input = new InputClass();
-	
-		
 
 		String jumin = "";
 		String DayOrNight = "";
 		String discount = "";
 		String count = "";
-		//String price = "";
 		int last = 0;
 		int totalprice = 0;
 		int real_total_price = 0;
@@ -30,26 +27,24 @@ public class Main {
 			count = input.HowMany();
 			discount = input.Discount();
 
-			//price = "";
-			int typediscount = Integer.parseInt(discount);
+			int typediscount = Integer.parseInt(discount); // 우대사항 번호로 표시
+			String Real_discount = out.Discount2(typediscount); //글자로 우대 표시
 
-			String Real_discount = out.Discount2(typediscount);
-
-			int Real_DayOrNight = Integer.parseInt(DayOrNight);
+			int Real_DayOrNight = Integer.parseInt(DayOrNight); // 주간권 야간권
 			if (Real_DayOrNight == 1) {
 				run.dayResidentNumber(jumin); // 나이로 인한 할인된 가격
-				run.Discount(typediscount); // 나이 말고 할인
-				totalprice = run.total_price(run.dayResidentNumber(jumin), count, run.Discount(typediscount));
+				run.Discount(typediscount); // 상황 할인
+				totalprice = run.total_price(run.dayResidentNumber(jumin), count, run.Discount(typediscount)); //총 금액
 
-			} else if (Real_DayOrNight == 2) {
+			} else if (Real_DayOrNight == 2) {  // 주간권 야간권
 				run.nightResidentNumber(jumin); // 나이에 따른 가격
 				run.Discount(typediscount); // 상황에 따른 할인
 									// count 수량
-				totalprice = run.total_price(run.nightResidentNumber(jumin), count, run.Discount(typediscount));
+				totalprice = run.total_price(run.nightResidentNumber(jumin), count, run.Discount(typediscount)); //총금액
 
 			}
-			run.write(input.DayNight(Real_DayOrNight), out.group1(jumin), count, String.valueOf((int) (run.dayResidentNumber(jumin) * run.Discount(typediscount))), Real_discount);
-			out.thanks(totalprice);
+			run.write(input.DayNight(Real_DayOrNight), out.group1(jumin), count, String.valueOf((int) (run.dayResidentNumber(jumin) * run.Discount(typediscount))), Real_discount + " \n"); // csv파일에 입력
+			out.thanks(totalprice); // 감사인사
 
 			String print = "";
 			print += out.DayNight(Integer.parseInt(DayOrNight)) + " ";
@@ -61,20 +56,23 @@ public class Main {
 			} else {
 				print += (int) (run.nightResidentNumber(jumin) * run.Discount(typediscount)) + "원  ";
 			}
-			print += "*" + Real_discount;
+			print += "*" + Real_discount + "\n";
 
-			real_total_price += totalprice;
-			get_Print_ArrayList.add(print);
+			real_total_price += totalprice; // 최종 총액을 구하기 위한 값
+			get_Print_ArrayList.add(print); //ArrayList에 입력
 
 			if (input.Continue() == 2) {
 				out.done();
-				out.Poli();
-
+				out.Poliline1();
 				for (int i = 0; i < get_Print_ArrayList.size(); i++) {
-
-					get_Print_ArrayList.get(i);
-					System.out.println(get_Print_ArrayList.get(i));
+					out.detail(get_Print_ArrayList.get(i));
 				}
+				
+//				for (int i = 0; i < get_Print_ArrayList.size(); i++) {
+					//get_Print_ArrayList.get(i);
+				//	System.out.println(get_Print_ArrayList.get(i));
+				//}
+				
 				out.total_price(real_total_price);
 				out.line();
 				last = input.LastAsk();

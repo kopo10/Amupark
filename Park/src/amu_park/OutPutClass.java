@@ -1,6 +1,7 @@
 package amu_park;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class OutPutClass {
@@ -56,7 +57,7 @@ public class OutPutClass {
 		} else if (discount == 2) {
 			return "장애인 우대";
 		} else if (discount == 3) {
-			return "유공자 우대";
+ 			return "유공자 우대";
 		} else if (discount == 4) {
 			return "다자녀우대";
 		} else {
@@ -65,7 +66,7 @@ public class OutPutClass {
 	}
 
 	public void thanks(int  price) {
-		System.out.println("가격은" + price + "원 입니다\n 감사합니다.");
+		System.out.println("가격은" + price + "원 입니다\n감사합니다.");
 	}
 	
 	
@@ -74,8 +75,12 @@ public class OutPutClass {
 		System.out.println("티켓 발권을 종료합니다.\n감사합니다.\n");
 	}
 
-	public void Poli() {
-		System.out.println("================폴리랜드=============");
+	public void Poliline1() {
+		System.out.println("================폴리랜드===============");
+	}
+	
+	public void detail (String get_Print_ArrayList) {
+		System.out.printf(get_Print_ArrayList);
 	}
 	
 	public void total_price(int totalprice) {
