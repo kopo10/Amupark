@@ -27,8 +27,8 @@ public class Main {
 			count = input.HowMany();
 			discount = input.Discount();
 
-			int typediscount = Integer.parseInt(discount); // 우대사항 번호로 표시
-			String Real_discount = out.Discount2(typediscount); //글자로 우대 표시
+			int typediscount = Integer.parseInt(discount); // 우대사항을 번호로 표시
+			String Real_discount = out.Discount2(typediscount); //우대사항을 글자로 표시
 
 			int Real_DayOrNight = Integer.parseInt(DayOrNight); // 주간권 야간권
 			if (Real_DayOrNight == 1) {
@@ -43,9 +43,11 @@ public class Main {
 				totalprice = run.total_price(run.nightResidentNumber(jumin), count, run.Discount(typediscount)); //총금액
 
 			}
+			
 			run.write(input.DayNight(Real_DayOrNight), out.group1(jumin), count, String.valueOf((int) (run.dayResidentNumber(jumin) * run.Discount(typediscount))), Real_discount + " \n"); // csv파일에 입력
+			
 			out.thanks(totalprice); // 감사인사
-
+			
 			String print = "";
 			print += out.DayNight(Integer.parseInt(DayOrNight)) + " ";
 			print += out.group1(jumin) + " X ";
@@ -64,18 +66,13 @@ public class Main {
 			if (input.Continue() == 2) {
 				out.done();
 				out.Poliline1();
-				for (int i = 0; i < get_Print_ArrayList.size(); i++) {
-					out.detail(get_Print_ArrayList.get(i));
+				for (int i = 0; i < get_Print_ArrayList.size(); i++) { //구입한 횟수만큼
+					out.detail(get_Print_ArrayList.get(i)); //상세 내역을 출력
 				}
-				
-//				for (int i = 0; i < get_Print_ArrayList.size(); i++) {
-					//get_Print_ArrayList.get(i);
-				//	System.out.println(get_Print_ArrayList.get(i));
-				//}
-				
-				out.total_price(real_total_price);
-				out.line();
-				last = input.LastAsk();
+				out.total_price(real_total_price); // 총 가격 출력
+				out.line(); // 줄표시
+			
+				last = input.LastAsk(); // 마지막으로 묻기
 				if (last == 2) {
 					break;
 				}
