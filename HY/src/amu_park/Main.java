@@ -53,10 +53,10 @@ public class Main {
 			print += out.group1(jumin) + " X ";
 			print += count + "  ";
 			if (Integer.parseInt(DayOrNight) == 1) {
-				print += (int) (run.dayResidentNumber(jumin) * run.Discount(typediscount)) + "원  ";
+				print += (int) (run.dayResidentNumber(jumin) * run.Discount(typediscount) * Integer.parseInt(count)) + "원  ";
 				
 			} else {
-				print += (int) (run.nightResidentNumber(jumin) * run.Discount(typediscount)) + "원  ";
+				print += (int) (run.nightResidentNumber(jumin) * run.Discount(typediscount) * Integer.parseInt(count)) + "원  ";
 			}
 			print += "*" + Real_discount + "\n";
 
