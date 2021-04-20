@@ -2,6 +2,8 @@ package amu_park;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 
 public class Run {
@@ -9,7 +11,7 @@ public class Run {
 	public ConstvaluseClass constval = null;
 	public OutPutClass output = null;
 	public Write write = null;
-	
+
 	public Run() {
 		inputclass = new InputClass();
 		constval = new ConstvaluseClass();
@@ -105,32 +107,35 @@ public class Run {
 
 	public int total_price(int Price, String howmany, double discount) {
 		int total_price = (int) (Price * Integer.parseInt(howmany) * discount);
-		return total_price;	
+		return total_price;
 	}
-	
-	public void write (String DayOrNight, String HowOld, String Count, String Price, String Discount) throws IOException {
+
+	public String Array(String DayOrNight, String jumin, String count, int typediscount, String Real_discount) {
+		//ArrayList<String>
 		
+		
+		ArrayList<String> get_Print_ArrayList = new ArrayList<String>();
+		String print = "";
+		//int real_total_price = 0;
+		//int totalprice = 0;
+		print += output.DayNight(Integer.parseInt(DayOrNight)) + " ";
+		print += output.group1(jumin) + " X ";
+		print += count + "  ";
+		if (Integer.parseInt(DayOrNight) == 1) {
+			print += (int) (dayResidentNumber(jumin) * Discount(typediscount) * Integer.parseInt(count)) + "¿ø  ";
+
+		} else {
+			print += (int) (nightResidentNumber(jumin) * Discount(typediscount) * Integer.parseInt(count)) + "¿ø  ";
+		}
+		print += "*" + Real_discount + "\n";
+		return print;
+	}
+
+	public void write(String DayOrNight, String HowOld, String Count, String Price, String Discount)
+			throws IOException {
+
 		write.write(DayOrNight, HowOld, Count, Price, Discount);
-		
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

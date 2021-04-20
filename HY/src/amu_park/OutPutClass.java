@@ -6,9 +6,11 @@ import java.util.Calendar;
 
 public class OutPutClass {
 	public ConstvaluseClass constval = null;
-
+	
+	
 	public OutPutClass() {
 		constval = new ConstvaluseClass();
+	
 	}
 
 	Calendar time = Calendar.getInstance();
@@ -17,7 +19,6 @@ public class OutPutClass {
 	String b = sdf.format(time.getTime());
 
 	String thisyear = sdf.format(time.getTime());
-
 
 	public String DayNight(int a) {
 		if (a == 1) {
@@ -47,8 +48,6 @@ public class OutPutClass {
 		}
 		return group;
 
-		// 주간 청소년 수량 가격 우대
-
 	}
 
 	public String Discount2(int discount) {
@@ -57,7 +56,7 @@ public class OutPutClass {
 		} else if (discount == 2) {
 			return "장애인 우대";
 		} else if (discount == 3) {
- 			return "유공자 우대";
+			return "유공자 우대";
 		} else if (discount == 4) {
 			return "다자녀우대";
 		} else {
@@ -65,34 +64,22 @@ public class OutPutClass {
 		}
 	}
 
-	public void thanks(int  price) {
+	public void thanks(int price) {
 		System.out.println("가격은" + price + "원 입니다\n감사합니다.");
 	}
-	
-	
-	
-	public void done() {
-		System.out.println("티켓 발권을 종료합니다.\n감사합니다.\n");
-	}
 
-	public void Poliline1() {
+	public void done(ArrayList<String> get_Print_ArrayList, int real_total_price) {
 		System.out.println("================폴리랜드===============");
-	}
-	
-	public void detail (String get_Print_ArrayList) {
-		System.out.printf(get_Print_ArrayList);
-	}
-	
-	public void total_price(int totalprice) {
-		System.out.println("\n입장료 총액은 " + totalprice + "원 입니다.");		
-	}
-	
-	public void line() {
+		for (int i = 0; i < get_Print_ArrayList.size(); i++) {
+			System.out.print(get_Print_ArrayList.get(i));
+		}
+		System.out.println("\n입장료 총액은 " + real_total_price + "원 입니다."); // 변경
+		System.out.println("티켓 발권을 종료합니다.\n감사합니다.\n");
 		System.out.println("=====================================");
 	}
-	
-	
-	
-	
-	
+
+//	public void detail (String DayOrNight, String jumin, String count, int typediscount, String Real_discount) {
+//		System.out.println(run.Array(DayOrNight, jumin, count, typediscount, Real_discount));
+//	}
+//	
 }

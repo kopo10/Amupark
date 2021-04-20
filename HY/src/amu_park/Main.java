@@ -21,12 +21,13 @@ public class Main {
 		int real_total_price = 0;
 
 		ArrayList<String> get_Print_ArrayList = new ArrayList<String>();
+		ArrayList<String> get_Print_ArrayList1 = new ArrayList<String>();
 		while (true) {
 			DayOrNight = input.DayOrNight();
 			jumin = input.ResidentNumber();
 			count = input.HowMany();
 			discount = input.Discount();
-
+		
 			int typediscount = Integer.parseInt(discount); // 우대사항을 번호로 표시
 			String Real_discount = out.Discount2(typediscount); //우대사항을 글자로 표시
 
@@ -41,37 +42,17 @@ public class Main {
 				run.Discount(typediscount); // 상황에 따른 할인
 									// count 수량
 				totalprice = run.total_price(run.nightResidentNumber(jumin), count, run.Discount(typediscount)); //총금액
-
 			}
 			
-			run.write(input.DayNight(Real_DayOrNight), out.group1(jumin), count, String.valueOf((int) (run.dayResidentNumber(jumin) * run.Discount(typediscount))), Real_discount + " \n"); // csv파일에 입력
+			run.write(input.DayNight(Real_DayOrNight), out.group1(jumin), count,
+					String.valueOf((int) (run.dayResidentNumber(jumin) * run.Discount(typediscount))), Real_discount + " \n"); // csv파일에 입력
 			
-			out.thanks(totalprice); // 감사인사
-			
-			String print = "";
-			print += out.DayNight(Integer.parseInt(DayOrNight)) + " ";
-			print += out.group1(jumin) + " X ";
-			print += count + "  ";
-			if (Integer.parseInt(DayOrNight) == 1) {
-				print += (int) (run.dayResidentNumber(jumin) * run.Discount(typediscount) * Integer.parseInt(count)) + "원  ";
-				
-			} else {
-				print += (int) (run.nightResidentNumber(jumin) * run.Discount(typediscount) * Integer.parseInt(count)) + "원  ";
-			}
-			print += "*" + Real_discount + "\n";
-
+			get_Print_ArrayList.add(run.Array(DayOrNight, jumin, count, typediscount, Real_discount)); //상세내역 출력		
 			real_total_price += totalprice; // 최종 총액을 구하기 위한 값
-			get_Print_ArrayList.add(print); //ArrayList에 입력
 
 			if (input.Continue() == 2) {
-				out.done();
-				out.Poliline1();
-				for (int i = 0; i < get_Print_ArrayList.size(); i++) { //구입한 횟수만큼
-					out.detail(get_Print_ArrayList.get(i)); //상세 내역을 출력
-				}
-				out.total_price(real_total_price); // 총 가격 출력
-				out.line(); // 줄표시
-			
+				out.done(get_Print_ArrayList , real_total_price);	
+				
 				last = input.LastAsk(); // 마지막으로 묻기
 				if (last == 2) {
 					break;

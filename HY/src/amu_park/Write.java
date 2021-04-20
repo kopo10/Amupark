@@ -7,7 +7,7 @@ import java.util.Calendar;
 
 public class Write {
 	public void write (String DayOrNight, String HowOld, String Count, String Price, String Discount) throws IOException {
-		FileOutputStream output = new FileOutputStream("133.csv", true);
+		FileOutputStream output = new FileOutputStream("C:\\Users\\·ùÇÑ¿­\\Desktop\\133.csv", true);
 		SimpleDateFormat sdf = new SimpleDateFormat("YYYYMMdd");
 		Calendar cal =Calendar.getInstance();
 		OutPutClass out = new OutPutClass();
